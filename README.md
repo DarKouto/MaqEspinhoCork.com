@@ -1,6 +1,6 @@
 # MaqEspinhoCork.com
 
-FULL-STACK WEB APPLICATION Deployed at https://www.maqespinhocork.com/
+FULL-STACK WEB APPLICATION Deployed at http://www.maqespinhocork.com
 
 Uses HTML5, CSS3, Bootstrap 4, JavaScript, jQuery, Node.js, Express, Passport.js, MongoDB, among other tecnhologies.
 
