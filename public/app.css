@@ -1,0 +1,38 @@
+body {
+	font-family: 'Lato', sans-serif;
+	padding-top: 56px;
+}
+
+.jumbotron {
+            background: url("/fundo.jpg") center center / cover no-repeat;
+         }
+
+.delete-form {
+	display: inline;
+}
+
+#content {
+	text-shadow: 0px 4px 3px rgba(0,0,0,0.4),   
+				 0px 8px 13px rgba(0,0,0,0.1),	
+				 0px 18px 23px rgba(0,0,0,0.1);
+}
+
+ .navbar-dark .navbar-nav .nav-link:hover {
+    color: white;
+}
+
+.cartas-titulo {
+	height: 3rem;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.cartas-desc {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.cartas-imagem {
+	height: 170px;
+	object-fit: cover;
+}

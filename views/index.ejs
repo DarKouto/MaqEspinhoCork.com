@@ -1,0 +1,57 @@
+<% include ./partials/header %>
+
+<div class="container">
+<div class="jumbotron text-center text-light jumbotron-fluid">
+	<div class="container">
+		<div id="content">
+			<h1>MaqEspinhoCork</h1>
+		<p class="lead">Compra, venda e manutenção de todos os equipamentos industriais.</p>  
+		</div>
+		
+		<% if(currentUser) { %>
+		<a class="btn btn-primary btn-lg" href="/maquinas/new">Adicionar Nova Máquina</a>
+		<% } %>
+	</div>
+</div>
+</div>
+
+<div class="container">
+<div class="row">
+	<% maquinas.forEach(function(maquina){ %>
+		
+	<div class="col-6 col-lg-4 col-xl-3 mb-4">
+        <div class="card">
+			
+			
+			<a href="/maquinas/<%= maquina._id %>">
+            	<img class="card-img-top cartas-imagem" src="<%= maquina.imagem %>">
+			</a>
+
+            <div class="card-body">
+                <h5 class="card-title cartas-titulo"><%= maquina.titulo %></h5>
+                <p class="card-text cartas-desc"><%= maquina.desc %></p>
+				
+				<% if(currentUser) { %>
+				<a class="btn btn-sm btn-warning" href="/maquinas/<%=maquina._id%>/edit">Editar</a>
+				<form class="delete-form" action="/maquinas/<%=maquina._id%>?_method=DELETE" method="POST">
+					<button class="btn btn-sm btn-danger">Remover</button>
+				</form>
+				<% } else { %>
+				
+				<a href="/maquinas/<%= maquina._id %>" class="btn btn-sm btn-outline-info">
+					<i class="fas fa-info-circle"></i> Detalhes
+				</a>
+				<a href="/contactos" class="btn btn-sm btn-outline-success">
+					<i class="fas fa-address-card mr-2"></i>Contactar
+				</a>
+				<% } %>
+            </div>
+        </div>
+    </div>
+		
+	<% }); %>
+	
+</div>
+</div>
+
+<% include ./partials/footer %>

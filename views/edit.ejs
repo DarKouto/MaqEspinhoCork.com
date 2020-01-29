@@ -1,0 +1,30 @@
+<% include ./partials/header %>
+
+<div class="container">
+<h2 style="text-align:center;">Editar <%= maquina.titulo %></h2>	
+<div style="width:30%; min-width: 280px; margin: 25px auto;">
+
+<form action="/maquinas/<%=maquina.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
+	
+	<div class="form-group">
+		<input class="form-control" type="text" value="<%= maquina.titulo %>" name="maquina[titulo]">
+	</div>
+	<div class="form-group">
+        <label for="imagem">Imagem Principal</label>
+        <input type="file" id="imagem" name="imagem" accept="image/*">
+    </div>
+	<div class="form-group">
+		<input class="form-control" type="text" value="<%= maquina.desc %>" name="maquina[desc]">
+	</div>
+	<div class="form-group">
+		<button class="btn btn-lg btn-primary btn-block">Submeter</button>	
+	</div>
+	
+</form>
+
+<a href="/">Voltar Atrás</a>
+
+</div>
+</div>
+
+<% include ./partials/footer %>

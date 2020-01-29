@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	
+	<!-- GOOGLE FONT--> 
+	<link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap" rel="stylesheet">
+    
+    <!-- JQUERY -->
+    <script src="/jquery-3.4.1.min.js"></script>
+	
+    <!-- BOOTSTRAP CSS e JS -->
+    <link rel="stylesheet" href="/bootstrap.min.css">
+    <script src="/bootstrap.min.js"></script>
+	
+	<!-- CUSTOM CSS -->
+    <link rel="stylesheet" href="/app.css">
+	
+    <!-- FONT AWESOME CDN-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+
+    <!-- HOWLER.JS CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.1.2/howler.core.min.js"></script>
+
+    <title>MaqEspinhoCork: Compra, venda e manutenção de todo o equipamento industrial.</title>
+</head>
+<body>
+    
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+<div class="container">
+    
+	<a class="navbar-brand" href="/"><i class="fas fa-cogs mr-2"></i>MaqEspinhoCork</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    	<span class="navbar-toggler-icon"></span>
+    </button>
+              
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  
+    	<ul class="navbar-nav mr-auto">
+        	<li class="nav-item">
+                <a class="nav-link" href="/"><i class="fas fa-window-restore mr-2"></i>Máquinas <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/contactos"><i class="fas fa-address-card mr-2"></i>Contactos</a>
+            </li>
+        </ul>
+                 
+        <ul class="navbar-nav ml-auto">
+		    <% if(!currentUser){ %>
+                <li class="nav-item">
+                    <a class="nav-link" href="/login"><i class="fas fa-user-cog mr-2"></i>Administração</a>
+                </li>
+            
+            <% } else { %>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout"><i class="fas fa-user-cog mr-2"></i>LOGOUT</a>
+                </li>
+		    <% } %>
+        </ul>
+        
+    </div>
+</div>
+</nav>
+
+<div class="container mt-3" style="margin-bottom:18px;">
+    
+    <% if(error && error.length > 0) { %>
+		<div class="alert alert-danger" role="alert">
+            <script>
+                var sound = new Howl({src: ['/sounds/error.mp3'], volume: 0.2});         
+                sound.play();
+            </script>    
+			<%= error %>
+		</div>
+    <% } %>
+    
+    <% if(addedit && addedit.length > 0) { %>
+		<div class="alert alert-success" role="alert">
+            <script>
+                var sound = new Howl({src: ['/sounds/addedit.mp3'], volume: 0.2});         
+                sound.play();
+            </script>    
+			<%= addedit %>
+		</div>
+    <% } %>
+
+    <% if(success && success.length > 0) { %>
+		<div class="alert alert-success" role="alert">
+            <script>
+                var sound = new Howl({src: ['/sounds/success.mp3'], volume: 0.2});         
+                sound.play();
+            </script>    
+			<%= success %>
+		</div>
+    <% } %>
+	
+	<% if(logout && logout.length > 0) { %>
+		<div class="alert alert-success" role="alert">
+            <script>
+                var sound = new Howl({src: ['/sounds/logout.mp3'], volume: 0.2});         
+                sound.play();
+            </script>    
+			<%= logout %>
+		</div>
+    <% } %>
+
+    <% if(remove && remove.length > 0) { %>
+		<div class="alert alert-success" role="alert">
+            <script>
+                var sound = new Howl({src: ['/sounds/remove.mp3'], volume: 0.2});         
+                sound.play();
+            </script>    
+			<%= remove %>
+		</div>
+    <% } %>
+</div>

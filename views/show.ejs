@@ -1,0 +1,31 @@
+<% include ./partials/header %>
+
+<div class="container d-flex justify-content-center">	
+<div class="card" style="width: 37rem;">
+	
+	<img class="card-img-top" src="<%= maquina.imagem %>" style="max-height: 25rem; object-fit: contain;">
+    <div class="card-body">
+        <h5 class="card-title"><%= maquina.titulo %></h5>
+        <p class="card-text"><%= maquina.desc %></p>
+		<% if(currentUser) { %>
+		<a class="btn btn-warning" href="/maquinas/<%=maquina._id%>/edit">Editar</a>
+		<form class="delete-form" action="/maquinas/<%=maquina._id%>?_method=DELETE" method="POST">
+			<button class="btn btn-danger">Remover</button>
+		</form>
+		<% } else { %>
+		<a href="/contactos" class="btn btn-success">
+			<i class="fas fa-address-card mr-2"></i>Contactar
+		</a>
+		<% } %>
+		
+		
+	</div>
+	
+	<div class="container">
+		<p><a href="/maquinas">Voltar Atrás</a></p>
+	</div>
+			
+</div>
+</div>
+
+<% include ./partials/footer %>
